@@ -12,27 +12,11 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
-// route to the homepage
-app.get("/", (req, res) => {
-  try {
-    res.render("homepage", {
-      style: "index.css",
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+const homepageRouter = require("./routes/homepage-routes");
+app.use("/", homepageRouter);
 
-//route to the gamepage
-app.get("/game", (req, res) => {
-  try {
-    res.render("games", {
-      style: "game.css",
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+const gamepageRouter = require("./routes/gamepage-routes");
+app.use("", gamepageRouter);
 
 // app.get('/', (req, res) => {
 //     res.redirect(`/${uuidv4()}`);
