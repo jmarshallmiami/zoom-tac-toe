@@ -8,36 +8,35 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./src/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="./src/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap" rel="stylesheet">  
 </head>
 <body>
     <header>
         <h1>ZOOM-TAC-TOE</h1>
     </header>
-    <main>
+    <div>
+        <form class="name">
+            <label for="name">Display Name:</label><br>
+            <input type="text" id="name" name="name">
+        </form>
         <div class="columns">
-            <div class="playerLeft column section is-medium">
-                <div class="card zoomBox">
-                    <div class="video card-content">
-                        video placeholder
-                    </div>
-                </div>
-                <h2>Player 1</h2>
+            <div class="buttons column is-one-third">
+                <a href="./game.html">
+                    <button class="button1">Create New Game</button>
+                </a>
             </div>
-            <div class="playerRight column section is-medium">
-                <div class="card zoomBox">
-                    <div class="video card-content">
-                        video placeholder
-                    </div>
-                </div>
-                <h2>Player 2</h2>
+            <div class="buttons column is-one-third">
+                <a href="./game.html">
+                    <button class="button2">Join Existing Game</button>
+                </a>
             </div>
+            <div class="buttons column is-one-third">
+                <a href="./game.html">
+                    <button class="button3">Join Random Game</button>
+                </a>
             </div>
         </div>
-        <div class="chat section is-small">
-            <h3>Chat</h3>
-        </div>
-    </main>
+    </div>
 </body>
 </html>

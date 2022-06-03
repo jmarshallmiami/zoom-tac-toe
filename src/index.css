@@ -1,0 +1,81 @@
+html,
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: rgba(201, 226, 101);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #cde641;
+    opacity: 1;
+    background-image:  repeating-linear-gradient(45deg, #d0eb70 25%, transparent 25%, transparent 75%, #d0eb70 75%, #d0eb70), repeating-linear-gradient(45deg, #d0eb70 25%, #cde641 25%, #cde641 75%, #d0eb70 75%, #d0eb70);
+    background-position: 0 0, 24px 24px;
+    background-size: 48px 48px;
+}
+
+header {
+    text-align: center;
+    font-size: 11vw;
+    color: #fcedd8;
+    text-shadow:  5px 5px 0px #eb452b, 
+    10px 10px 0px #efa032, 
+    15px 15px 0px #46b59b, 
+    20px 20px 0px #017e7f, 
+    25px 25px 0px #052939, 
+    30px 30px 0px #c11a2b;
+    padding: 0 0 20px 0;
+}
+
+.name {
+    background-color: #fcedd8;
+    text-align: center;
+    border-radius: 50px;
+    margin: 20px 150px 50px 150px;
+    padding: 20px;
+    color: #017e7f;
+    text-shadow: 5px 5px 0px #46b59b,
+    10px 10px 0px #017e7f,
+    15px 15px 0px #052939;
+    font-size: 5vw;
+}
+
+#name {
+    font-size: 3vw;
+    border-radius: 50px;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    color: #eb452b;
+    background-color: #f9d9ab;
+}
+
+#name:hover {
+    box-shadow: 5px 5px 5px #c11a2b;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.button1,
+.button2,
+.button3 {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    font-size: 3vw;
+    font-family: 'Fredoka One', cursive;
+    color: #c11a2b;
+    background-color: #fcedd8;
+    border-color: #f9d9ab;
+}
+
+.button1:hover {
+    box-shadow: 10px 10px 10px #052939;
+}
+
+.button2:hover {
+    box-shadow: 10px 10px 10px #efa032;
+}
+
+.button3:hover {
+    box-shadow: 10px 10px 10px #017e7f;
+}

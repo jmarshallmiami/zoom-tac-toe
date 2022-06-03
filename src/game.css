@@ -22,13 +22,13 @@ header {
     20px 20px 0px #017e7f, 
     25px 25px 0px #052939, 
     30px 30px 0px #c11a2b;
-    padding: 0 0 10px 0;
+    padding: 0 0 20px 0;
 }
 
 .playerLeft {
     text-align: center;
     background-color: #efa032;
-    margin: 40px 20px 40px 40px;
+    margin: 20px 20px 20px 20px;
     border-radius: 50px;
     border: 11px solid #ac6d16;
     display: flex;
@@ -38,7 +38,7 @@ header {
 .playerRight {
     text-align: center;
     background-color: #46b59b;
-    margin: 40px 40px 40px 20px;
+    margin: 20px 20px 20px 20px;
     border-radius: 50px;
     border: 11px solid #337767;
     display: flex;
@@ -48,9 +48,12 @@ header {
 .chat {
     text-align: center;
     background-color: #c11a2b;
-    margin: 0 30px 30px 30px;
+    margin: 20px 10px 20px 20px;
     border-radius: 50px;
     border: 11px solid #82000d;
+    margin: 20px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -63,4 +66,65 @@ h3 {
     color: #fcedd8;
     text-shadow:  3px 3px 0px #efa032;
     font-size: 3vw;
+    text-align: center;
+}
+
+.game {
+    background-color: #fcedd8;
+    border: 11px solid #f0d0a3;
+    margin: 20px 10px 20px 40px;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background: #f0d0a3;
+}
+
+.gameRestart:hover {
+    cursor: pointer;
+}
+
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+}
+.cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer;
+    line-height: 100px;
+    font-size: 60px;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameRestart {
+    background-color: #fcedd8;
+    border: none;
+    color: #f0d0a3;
+    font-family: 'Fredoka One', cursive;
+    font-size: 4vw;
+    text-shadow:  3px 3px 0px #eb452b, 
+    5px 5px 0px #efa032, 
+    7px 7px 0px #46b59b, 
+    9px 9px 0px #017e7f, 
+    11px 11px 0px #052939,
+    13px 14px 0px #c11a2b;
 }
