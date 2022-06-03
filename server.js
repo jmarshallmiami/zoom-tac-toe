@@ -1,29 +1,34 @@
 const express = require('express');
-const { isBuffer } = require('util');
+
 const app = express();
 const server = require('http').Server(app);
 
-// const exphbs = require('express-handlebars');
-// const hbs = exphbs.create({});
+// const {v4: uuidv4} = require('uuid');
 
-const {v4: uuidv4} = require('uuid');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-// test for server functionality
-
-app.get('/', (req, res) => {
-    res.redirect(`/${uuidv4()}`);
+// route to the homepage
+app.get('/', (req,res) => {
+    try{
+        res.render('homepage')
+    } catch (err){
+        res.status(500).json(err);
+    }
+    
 });
 
-// app.get('/', (req,res) => {
-//     res.status(200).send("Server is working")
+// app.get('/', (req, res) => {
+//     res.redirect(`/${uuidv4()}`);
 // });
 
+
 app.get('/:game', (req,res) => {
-    res.render('game', {gameId: req.params.game})
-})
+    res.redirect('game', {gameId: req.params.game})
+});
 
 
 server.listen(3100);
