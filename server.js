@@ -22,7 +22,7 @@ app.use("", gamepageRouter);
 
 io.on("connection", (socket) => {
     socket.on('join-room', () => {
-        console.log('Player1 joined room')
+        console.log()
     })
   });
 
