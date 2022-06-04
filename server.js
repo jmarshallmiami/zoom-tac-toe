@@ -20,10 +20,12 @@ const gamepageRouter = require("./routes/gamepage-routes");
 app.use("", gamepageRouter);
 
 
-io.on("connection", (socket) => {
-    socket.on('join-room', () => {
-        console.log()
-    })
-  });
+// io.on("connection", socket => {
+//     socket.on('join-room', (gameId) => {
+//       // console.log('Player has joined room');
+//       socket.join(gameId);
+//       socket.to(gameId).broadcast.emit('user-connected');
+//     })
+//   });
 
 server.listen(3100);

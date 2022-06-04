@@ -52,4 +52,10 @@
             </div>
         </div>
     </main>
-    <script src="/socket.io/socket.io.js"></script>
+
+    {{!-- scripts that must run immediately upon rendering page --}}
+    {{!-- <script src="/socket.io/socket.io.js"></script> --}}
+    <script>
+        console.log(gameId);
+        {{!-- const GAME_ID = gameId; --}}
+    </script>

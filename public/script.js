@@ -15,7 +15,15 @@ navigator.mediaDevices.getUserMedia({
     addStream(myVideo, stream);
 })
 
-socket.emit('join-room');
+// socket.emit('join-room',GAME_ID);
+
+// socket.on('user-connected', () => {
+//     connectNewPlayer();
+// })
+
+// const connectNewPlayer = () => {
+//  console.log("New Player joined");
+// };
 
 const addStream = (video, stream) => {
     video.srcObject = stream;
