@@ -1,4 +1,4 @@
-const socket = io('/');
+// const socket = io('/');
 
 const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
@@ -15,6 +15,15 @@ navigator.mediaDevices.getUserMedia({
     addStream(myVideo, stream);
 })
 
+
+const addStream = (video, stream) => {
+    video.srcObject = stream;
+    video.addEventListener('loadedmetadata', ()=> {
+        video.play()
+    })
+    videoGrid.append(video)
+}
+
 // socket.emit('join-room',GAME_ID);
 
 // socket.on('user-connected', () => {
@@ -24,11 +33,3 @@ navigator.mediaDevices.getUserMedia({
 // const connectNewPlayer = () => {
 //  console.log("New Player joined");
 // };
-
-const addStream = (video, stream) => {
-    video.srcObject = stream;
-    video.addEventListener('loadedmetadata', ()=> {
-        video.play()
-    })
-videoGrid.append(video)
-}
