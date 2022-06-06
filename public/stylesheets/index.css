@@ -25,20 +25,21 @@ header {
     padding: 0 0 20px 0;
 }
 
-.name {
+.username,
+.password {
     background-color: #fcedd8;
     text-align: center;
     border-radius: 50px;
-    margin: 20px 150px 50px 150px;
-    padding: 20px;
+    padding: 10px;
     color: #017e7f;
     text-shadow: 5px 5px 0px #46b59b,
     10px 10px 0px #017e7f,
     15px 15px 0px #052939;
-    font-size: 5vw;
+    font-size: 3vw;
 }
 
-#name {
+#username,
+#password {
     font-size: 3vw;
     border-radius: 50px;
     text-align: center;
@@ -47,7 +48,8 @@ header {
     background-color: #f9d9ab;
 }
 
-#name:hover {
+#username:hover,
+#password:hover {
     box-shadow: 5px 5px 5px #c11a2b;
 }
 
