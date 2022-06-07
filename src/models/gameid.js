@@ -1,6 +1,4 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
-const { v4: uuidv4 } = require("uuid");
 
 class GameId extends Model {}
 
@@ -10,6 +8,16 @@ GameId.init({
     allowNull: false,
     primaryKey: true,
   },
+  player1_id:{
+    type: Sequelize.DataTypes.String(10)
+  },
+  player2_id:{
+    type: Sequelize.DataTypes.String(10)
+  },
+},
+{
+  freezeTableName: true,
+  
 });
 
 module.exports = GameId;
