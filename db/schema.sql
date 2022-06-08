@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS gamepage_db;
+DROP DATABASE IF EXISTS zoom_tac_toe_db;
 
-CREATE DATABASE gamepage_db;
+CREATE DATABASE zoom_tac_toe_db;

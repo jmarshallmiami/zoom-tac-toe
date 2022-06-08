@@ -1,28 +1,73 @@
-// const router = require("express").Router();
-// const { GameId } = require("../../models");
+const router = require("express").Router();
+const { GameId } = require("../../../models");
 
-// // //create unique gameID when you create a game 
-// const {v4: uuidv4} = require('uuid');
-
-// // creates URL to unique game ID
-// router.get("/game", (req, res) => { 
-//   try {
-//     res.redirect(`/${uuidv4()}`)
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get("/:game", (req, res) => {
-//   try {
-//     res.render("games", {
-//       style: "game.css",
-//       gameId: req.params.id
-//     })
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// creates get all games
+router.get("/game", (req, res) => {
+  GameId.findAll()
+    .then(dbGameData => res.json(dbGameData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+});
 
 
-// module.exports = router;
+router.get("/:gameId", (req, res) => {
+  GameId.findOne({
+
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbGameData => {
+      if (!dbGameData) {
+        res.status(404).json({ message: 'Game ID not found!' });
+        return;
+      }
+      res.json(dbGameData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// POST /api/users
+router.post('/', (req, res) => {
+  GameId.create({
+    // expects gameId: "<generated UUID>", player1_id: "<username of player1>", player2_id: "<username of player2>", player1_turn: "<Boolean>"
+    gameId: req.body.gameId,
+    player1_id: req.body.player1_id,
+    player2_id: req.body.player2_id,
+    player1_turn: req.body.player1_turn
+  })
+    .then(dbGameData => res.json(dbGameData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// PUT /api/users/1
+router.put('/:gameId', (req, res) => {
+  // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
+  GameId.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbGameData => {
+      if (!dbGameData[0]) {
+        res.status(404).json({ message: 'Game ID not found!' });
+        return;
+      }
+      res.json(dbGameData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
+module.exports = router;

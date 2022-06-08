@@ -1,31 +1,31 @@
+// connection to db config
+const sequelizer = require('./config/connection');
+
 // initialize express
 const express = require('express');
 const exphbs = require('express-handlebars');
+const { sequelize } = require('./models');
 const hbs = exphbs.create({});
 const app = express();
 
 // server port connection
-const port = process.env.PORT||3001
+const port = process.env.PORT || 3001
 
 // const server = require('http').Server(app);
 // const io = require('socket.io')(server);
 
 // initalizing server
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 // initialize handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// use the routes set up in the routes folder
+const routes = require('./src/routes');
 
-
-// const homepageRouter = require('./routes/homepage-routes');
-// app.use('/', homepageRouter);
-
-// const gamepageRouter = require('./routes/gamepage-routes');
-// app.use('', gamepageRouter);
 
 // io.on('connection', socket => {
 //     socket.on('join-room', (gameId) => {
@@ -35,6 +35,7 @@ app.set('view engine', 'handlebars');
 //     })
 //   });
 
-app.listen(port, ()=> {
-    console.log(`The server is listening on port ${port}`);
-});
+// turn on connection to db and server
+sequelizer.sync({ force: false }).then(() => {
+    app.listen(port, () => console.log('Now listening'));
+})
