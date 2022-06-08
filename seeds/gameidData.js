@@ -27,6 +27,6 @@ const gameidData = [
       },
 ];
 
-const seedGames = () => GameId.bulkCreate(gameidData);
+const seedGames = () => GameId.bulkCreate(gameidData)
 
 module.exports = seedGames;
