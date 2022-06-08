@@ -4,11 +4,10 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 
 // initialize express
-const express = require('express');
-const exphbs = require('express-handlebars');
-const { sequelize } = require('./models');
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// initialize socket.io
 // const server = require("http").Server(app);
 // const io = require('socket.io')(server);
 

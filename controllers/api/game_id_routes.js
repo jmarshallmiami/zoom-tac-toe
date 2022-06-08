@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { GameId } = require("../../models");
+// UUID package called
+const {v4: uuidv4} = require('uuid');
 
 // creates get all games
 router.get("/game", (req, res) => {
@@ -32,11 +34,11 @@ router.get("/:gameId", (req, res) => {
     });
 });
 
-// POST /api/users
+// POST /newGame
 router.post('/', (req, res) => {
   GameId.create({
     // expects gameId: "<generated UUID>", player1_id: "<username of player1>", player2_id: "<username of player2>", player1_turn: "<Boolean>"
-    gameId: req.body.gameId,
+    gameId: uuidv4(),
     player1_id: req.body.player1_id,
     player2_id: req.body.player2_id,
     player1_turn: req.body.player1_turn
