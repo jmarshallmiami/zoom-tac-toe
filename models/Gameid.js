@@ -7,7 +7,7 @@ GameId.init({
     gameId: {
         type: DataTypes.STRING,
         allowNull: false,
-        primaryKey: true,
+        // primaryKey: true,
     },
     player1_id: {
         type: Sequelize.DataTypes.  STRING,
@@ -21,7 +21,7 @@ GameId.init({
         type: Sequelize.DataTypes.BOOLEAN,
         allowNull: false,
         default: true
-    }
+    },
 },
 {
     sequelize,
