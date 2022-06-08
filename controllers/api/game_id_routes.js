@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { GameId } = require("../../../models");
+const { GameId } = require("../../models");
 
 // creates get all games
 router.get("/game", (req, res) => {
