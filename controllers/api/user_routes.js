@@ -1,42 +1,5 @@
 const router = require("express").Router();
-const { User, Game } = require("../../models");
-
-router.get("/", (req, res) => {
-  User.findAll({
-    attributes: { exclude: ["password"] },
-  })
-    .then((dbUserData) => res.json(dbUserData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.get("/:id", (req, res) => {
-  User.findOne({
-    attributes: { exclude: ["password"] },
-    where: {
-      id: req.params.id,
-    },
-    include: [
-      {
-        model: Game,
-        attributes: ["game_id"],
-      },
-    ],
-  })
-    .then((dbUserData) => {
-      if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+const { User } = require("../../models");
 
 router.post("/", ({ body, session }, res) => {
   User.create(body).then((dbUserData) => {
@@ -52,9 +15,10 @@ router.post("/", ({ body, session }, res) => {
   });
 });
 
-router.post("/login", (req, res) => {
+router.get("/login", (req, res) => {
   User.findOne({
     where: {
+      id: req.body.id,
       username: req.body.username,
     },
   }).then((dbUserData) => {
@@ -67,15 +31,17 @@ router.post("/login", (req, res) => {
       res.status(400).json({ message: "Incorrect password!" });
       return;
     }
+    res.json({ user: dbUserData, message: "You are now logged in!" });
 
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
+    // req.session.save(() => {
+    //   req.session.user_id = dbUserData.id;
+    //   req.session.username = dbUserData.username;
+    //   req.session.loggedIn = true;
+    // });
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
-    });
-  });
+  }).catch((err) => {
+    console.log(err);
+  })
 });
 
 module.exports = router;

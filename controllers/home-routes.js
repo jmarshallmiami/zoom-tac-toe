@@ -24,8 +24,4 @@ router.get("/dashboard/:username", (req, res) => {
   res.render("dashboard");
 });
 
-router.get("/games/:gameroomName", (req, res) => {
-  res.render("games");
-});
-
 module.exports = router;

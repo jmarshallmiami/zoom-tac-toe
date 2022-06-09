@@ -23,6 +23,14 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        wins: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        losses: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
         hooks: {
