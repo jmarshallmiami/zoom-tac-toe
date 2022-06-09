@@ -5,16 +5,16 @@ class GameId extends Model { }
 
 GameId.init({
     gameId: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID(10),
         allowNull: false,
-        // primaryKey: true,
     },
     player1_id: {
-        type: Sequelize.DataTypes.  STRING,
+        type: Sequelize.DataTypes.STRING,
         unique: true
+        
     },
     player2_id: {
-        type: Sequelize.DataTypes.  STRING,
+        type: Sequelize.DataTypes.STRING,
         unique: true
     },
     player1_turn: {
@@ -23,11 +23,14 @@ GameId.init({
         default: true
     },
 },
-{
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "gameid"
-});
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        timestamp: false,
+        modelName: "gameid"
+    });
+
+
 
 module.exports = GameId;
