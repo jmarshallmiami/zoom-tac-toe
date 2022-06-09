@@ -10,14 +10,6 @@ GameId.init(
       allowNull: false,
       primaryKey: true,
     },
-    // player1_id: {
-    //   type: Sequelize.DataTypes.STRING,
-    //   unique: true,
-    // },
-    // player2_id: {
-    //   type: Sequelize.DataTypes.STRING,
-    //   unique: true,
-    // },
     // player1_turn: {
     //   type: Sequelize.DataTypes.BOOLEAN,
     //   allowNull: false,
@@ -28,6 +20,7 @@ GameId.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
+    timestamps: false,
     modelName: "gameid",
   }
 );
