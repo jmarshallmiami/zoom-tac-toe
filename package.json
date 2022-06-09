@@ -1,7 +1,7 @@
 {
   "name": "zoom-tac-toe",
   "version": "1.0.0",
-  "description": "",
+  "description": "multiplayer tic-tac-toe game",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,7 +28,7 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.1",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1",
+    "tinyurl": "^1.1.7",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

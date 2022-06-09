@@ -21,15 +21,11 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/dashboard/:username", (req, res) => {
-  res.render("dashboard", {
-    style: "index.css",
-  });
+  res.render("dashboard");
 });
 
 router.get("/games/:gameroomName", (req, res) => {
-  res.render("games", {
-    style: "game.css",
-  });
+  res.render("games");
 });
 
 module.exports = router;
