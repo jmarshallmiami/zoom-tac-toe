@@ -6,15 +6,15 @@ class GameId extends Model { }
 GameId.init(
   {
     gameroomName: {
-      type: DataTypes.STRING,
+      type: Sequelize.DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
     },
-    // player1_turn: {
-    //   type: Sequelize.DataTypes.BOOLEAN,
-    //   allowNull: false,
-    //   default: true,
-    // },
+    player1_id: {
+      type: Sequelize.DataTypes.INTEGER,
+      allowNull: false,
+      default: true,
+    },
   },
   {
     sequelize,

@@ -1,8 +1,8 @@
 const User = require("./User");
 const GameId = require("./GameId");
 
-User.hasMany(GameId, {
-  foreignKey: "gameId",
+User.(GameId, {
+  foreignKey: "player1_id",
 });
 
 GameId.belongsTo(User, {
