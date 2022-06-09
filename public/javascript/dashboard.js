@@ -1,33 +1,25 @@
-
-
-async function createGameroomHandler(event) {
+async function createRoomHandler(event) {
   event.preventDefault();
 
-  //creates new game upon click 
-  const response = await fetch('/', {
-    method: 'POST',
-    body: JSON.stringify({
-      gameId
-    }),
+  const gameroomName = document.querySelector("#create-game").value.trim();
 
-    header: {
-      'Content-Type': 'application/json'
+  if (gameroomName) {
+    const response = await fetch("/api/gameroom/", {
+      method: "post",
+      body: JSON.stringify({
+        gameroomName,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      document.location.replace(`/games/${gameroomName}`);
+    } else {
+      alert(response.statusText);
     }
-  });
-
-  if (response.ok) {
-    document.location.replace(`/games/${gameId}`);
-  } else {
-    alert(response.statusText);
   }
 }
 
-//create new game button
 document
-  .querySelector(".new-gameroom")
-  .addEventListener("click", createGameroomHandler);
-
-// clickable previous games
-// document
-//   .querySelector(".new-gameroom")
-//   .addEventListener("click", createGameroomHandler);
+  .querySelector(".create-game")
+  .addEventListener("submit", createRoomHandler);

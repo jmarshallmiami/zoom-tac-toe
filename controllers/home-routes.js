@@ -20,16 +20,12 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard/:username", (req, res) => {
   res.render("dashboard");
 });
 
-router.get("/games", (req, res) => {
-  try {
-    res.redirect(`/${uuidv4()}`);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/games/:gameroomName", (req, res) => {
+  res.render("games");
 });
 
 module.exports = router;

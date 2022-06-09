@@ -1,75 +1,29 @@
 const router = require("express").Router();
-const { GameId } = require("../../models");
-// UUID package called
-const {v4: uuidv4} = require('uuid');
+const { User, GameId } = require("../../models");
 
 // creates get all games
 router.get("/game", (req, res) => {
-  GameId.findAll()
-    .then(dbGameData => res.json(dbGameData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    })
-});
-
-
-router.get("/:gameId", (req, res) => {
-  GameId.findOne({
-
+  GameId.findAll({
+    attributes: ["player1_id"],
     where: {
-      id: req.params.id
-    }
+      player1_id: username,
+    },
   })
-    .then(dbGameData => {
-      if (!dbGameData) {
-        res.status(404).json({ message: 'Game ID not found!' });
-        return;
-      }
+    .then((dbGameData) => res.json(dbGameData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//create gameroomName
+router.post("/", ({ body, session }, res) => {
+  GameId.create(body).then((dbGameData) => {
+    session.save(() => {
+      session.gameroomName = dbGameData.gameroomName;
       res.json(dbGameData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
     });
+  });
 });
-
-// POST /newGame
-router.post('/', (req, res) => {
-  GameId.create({
-    // expects gameId: "<generated UUID>", player1_id: "<username of player1>", player2_id: "<username of player2>", player1_turn: "<Boolean>"
-    gameId: uuidv4(),
-    player1_id: req.body.player1_id,
-    player2_id: req.body.player2_id,
-    player1_turn: req.body.player1_turn
-  })
-    .then(dbGameData => res.json(dbGameData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// PUT /api/users/1
-router.put('/:gameId', (req, res) => {
-  // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
-  GameId.update(req.body, {
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbGameData => {
-      if (!dbGameData[0]) {
-        res.status(404).json({ message: 'Game ID not found!' });
-        return;
-      }
-      res.json(dbGameData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 
 module.exports = router;
