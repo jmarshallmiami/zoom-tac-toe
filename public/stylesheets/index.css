@@ -27,8 +27,7 @@ header {
 }
 
 .login-form,
-.signup-form,
-.create-game {
+.signup-form {
     background-color: #fcedd8;
     text-align: center;
     border-radius: 50px;
@@ -46,8 +45,7 @@ header {
 #username-login,
 #password-login,
 #username-signup,
-#password-signup,
-#create-game {
+#password-signup {
     font-size: 3vw;
     border-radius: 50px;
     text-align: center;
@@ -59,15 +57,12 @@ header {
 #username-login:hover,
 #password-login:hover,
 #username-signup:hover,
-#password-signup:hover,
-#create-game:hover {
+#password-signup:hover {
     cursor: pointer;
 }
 
 .login-button,
-.signup-button,
-.create-button,
-.gameRestart {
+.signup-button {
     background-color: #fcedd8;
     border: none;
     font-family: 'Fredoka One', cursive;
@@ -82,10 +77,29 @@ header {
 }
 
 .login-button:hover,
-.signup-button:hover,
-.create-button:hover,
-.gameRestart:hover {
+.signup-button:hover {
     cursor: pointer;
+}
+
+.pickGame {
+    color: #052939;
+    text-shadow: 5px 5px 0px #017e7f,
+    8px 8px 0px #46b59b,
+    10px 10px 0px #efa032,
+    12px 12px 0px #eb452b;
+    font-size: 8vw;
+    text-align: center;
+}
+
+.join-game {
+    padding: 15px;
+}
+
+.gameSelect {
+    width: 33.3%;
+    height: auto;
+    display: flex;
+    font-size: 4vw;
 }
 
 /* gameboard styling */

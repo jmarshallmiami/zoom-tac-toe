@@ -18,12 +18,6 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [
-      {
-        model: Game,
-        attributes: ["game_id"],
-      },
-    ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -55,7 +49,7 @@ router.post("/", ({ body, session }, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username,
+      username: dbUserData.username,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {

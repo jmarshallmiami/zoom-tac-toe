@@ -24,7 +24,7 @@ router.get("/dashboard/:username", (req, res) => {
   res.render("dashboard");
 });
 
-router.get("/games/:gameroomName", (req, res) => {
+router.get("/tic-tac-toe", (req, res) => {
   res.render("games");
 });
 
