@@ -47,6 +47,8 @@ router.post("/", ({ body, session }, res) => {
 
       res.json(dbUserData);
     });
+    User.id = dbUserData.id;
+    User.username = dbUserData.username;
   });
 });
 
