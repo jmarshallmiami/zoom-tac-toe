@@ -10,11 +10,6 @@ GameId.init(
       allowNull: false,
       primaryKey: true,
     },
-    // player1_turn: {
-    //   type: Sequelize.DataTypes.BOOLEAN,
-    //   allowNull: false,
-    //   default: true,
-    // },
   },
   {
     sequelize,
