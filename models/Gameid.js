@@ -8,13 +8,8 @@ GameId.init(
     gameroomName: {
       type: Sequelize.DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
-    },
-    player1_id: {
-      type: Sequelize.DataTypes.INTEGER,
-      allowNull: false,
-      default: true,
-    },
+      unique: true,
+    }
   },
   {
     sequelize,
