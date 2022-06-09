@@ -3,13 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 
-// initialize express
 const app = express();
 const PORT = process.env.PORT || 3001;
-
-// initialize socket.io
-// const server = require("http").Server(app);
-// const io = require('socket.io')(server);
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -38,14 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(require("./controllers"));
-
-// io.on('connection', socket => {
-//     socket.on('join-room', (gameId) => {
-//       // console.log('Player has joined room');
-//       socket.join(gameId);
-//       socket.to(gameId).broadcast.emit('user-connected');
-//     })
-//   });
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));

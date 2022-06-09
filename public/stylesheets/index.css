@@ -10,6 +10,7 @@ body {
     background-image:  repeating-linear-gradient(45deg, #d0eb70 25%, transparent 25%, transparent 75%, #d0eb70 75%, #d0eb70), repeating-linear-gradient(45deg, #d0eb70 25%, #cde641 25%, #cde641 75%, #d0eb70 75%, #d0eb70);
     background-position: 0 0, 24px 24px;
     background-size: 48px 48px;
+    margin: 20px;
 }
 
 header {
@@ -25,21 +26,28 @@ header {
     padding: 0 0 20px 0;
 }
 
-.username,
-.password {
+.login-form,
+.signup-form,
+.create-game {
     background-color: #fcedd8;
     text-align: center;
     border-radius: 50px;
     padding: 10px;
-    color: #017e7f;
-    text-shadow: 5px 5px 0px #46b59b,
-    10px 10px 0px #017e7f,
-    15px 15px 0px #052939;
-    font-size: 3vw;
+    color: #052939;
+    text-shadow: 5px 5px 0px #017e7f,
+    8px 8px 0px #46b59b,
+    10px 10px 0px #efa032,
+    12px 12px 0px #eb452b;
+    font-size: 5vw;
+    border: 20px;
+    margin: 20px;
 }
 
-#username,
-#password {
+#username-login,
+#password-login,
+#username-signup,
+#password-signup,
+#create-game {
     font-size: 3vw;
     border-radius: 50px;
     text-align: center;
@@ -48,36 +56,56 @@ header {
     background-color: #f9d9ab;
 }
 
-#username:hover,
-#password:hover {
+#username-login:hover,
+#password-login:hover,
+#username-signup:hover,
+#password-signup:hover,
+#create-game:hover {
     box-shadow: 5px 5px 5px #c11a2b;
+    cursor: pointer;
 }
 
-.buttons {
-    text-align: center;
-}
-
-.button1,
-.button2,
-.button3 {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    font-size: 3vw;
-    font-family: 'Fredoka One', cursive;
-    color: #c11a2b;
+.login-button,
+.signup-button,
+.create-button,
+.gameRestart {
     background-color: #fcedd8;
-    border-color: #f9d9ab;
+    border: none;
+    color: #c11a2b;
+    font-family: 'Fredoka One', cursive;
+    font-size: 5vw;
 }
 
-.button1:hover {
-    box-shadow: 10px 10px 10px #052939;
+.login-button:hover,
+.signup-button:hover,
+.create-button:hover,
+.gameRestart:hover {
+    color: #f0d0a3;
+    cursor: pointer;
+    text-shadow:  3px 3px 0px #eb452b, 
+    5px 5px 0px #efa032, 
+    7px 7px 0px #46b59b, 
+    9px 9px 0px #017e7f, 
+    11px 11px 0px #052939,
+    13px 14px 0px #c11a2b;
 }
 
-.button2:hover {
-    box-shadow: 10px 10px 10px #efa032;
+/* gameboard styling */
+  
+.tile{
+	width: 80px;
+	height: 80px;
+	font-size: 60px;
+	font-family: Helvetica;
 }
 
-.button3:hover {
-    box-shadow: 10px 10px 10px #017e7f;
+.gameBoard{
+	display: none;
 }
+
+.center{
+	margin: 0 auto;
+}
+
+
+
